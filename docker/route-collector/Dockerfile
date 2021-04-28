@@ -1,6 +1,6 @@
 ARG baseimage=scratch
 
-FROM ocr.hclcnlabs.com/cfmr/golang:1.13 as builder
+FROM hclcnlabs/golang:1.13 as builder
 WORKDIR /eirini/
 COPY . .
 RUN  CGO_ENABLED=0 GOOS=linux go build -mod vendor -trimpath -a -installsuffix cgo -o route-collector ./cmd/route-collector/
